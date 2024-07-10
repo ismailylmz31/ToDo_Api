@@ -26,12 +26,13 @@ SECRET_KEY = 'django-insecure-o)d)^q4w=4sv&fbdjjs=kz+hf77*+3$@whuqy47r4)5-=73avu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 APPEND_SLASH = True
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'rest_framework',
     'todo',
     'django.contrib.admin',
@@ -43,7 +44,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    
+
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +57,7 @@ MIDDLEWARE = [
 
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'todo_project.urls'
 
 TEMPLATES = [
@@ -75,7 +78,7 @@ TEMPLATES = [
 
 
 
-#WSGI_APPLICATION = 'todo_project.wsgi.application'
+WSGI_APPLICATION = 'todo_project.wsgi.application'
 
 
 # Database
