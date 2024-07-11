@@ -32,6 +32,7 @@ APPEND_SLASH = True
 # Application definition
 
 INSTALLED_APPS = [
+    'django_filters',
     'corsheaders',
     'rest_framework',
     'todo',
@@ -42,6 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+    ],
+}
+
 
 MIDDLEWARE = [
 

@@ -15,7 +15,3 @@ class ToDoSerializer(serializers.ModelSerializer):
         model = ToDo
         fields = '__all__'
 
-class BatchDeleteSerializer(serializers.Serializer):
-    ids = serializers.ListField(
-        child=serializers.IntegerField(), allow_empty=False
-    )
